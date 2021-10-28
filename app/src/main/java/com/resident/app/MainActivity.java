@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button refreshcaptchaButton;
 
     private String captcha_generation_url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/get/captcha";
+    private String otp_generation_url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/generate/aadhaar/otp";
 
 
     @Override
@@ -55,78 +56,86 @@ public class MainActivity extends AppCompatActivity {
         getOtpButton = (Button) findViewById(R.id.getOtpButton);
         refreshcaptchaButton = (Button) findViewById(R.id.refreshCaptcha);
 
-
+        // Initialising API methods class before.
+        method = callingApiFunction();
 
         captchaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String aadharNumber = aadharNumberField.getEditText().getText().toString().trim();
-                callingApiFunction("POSTCALL", captcha_generation_url);
+
+                method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
             }
         });
     }
 
-    void callingApiFunction(String requestType, String url){
-        // calling the desired method:-
-        method = new api_methods(mResultCallback, MainActivity.this);
-        method.generate_captcha(requestType, TAG, url);
+    api_methods callingApiFunction(){
+        return new api_methods(mResultCallback, MainActivity.this);
     }
-
 
     void initVolleyCallback(){
         mResultCallback = new IResult() {
             @Override
             public void notifySuccess(String requestType, JSONObject response) {
-                try {
-                    Log.d(TAG, "response got succesfully");
-                    Log.d(TAG, response.toString());
-                    int statusCode = response.getInt("statusCode");
-                    if (statusCode == 200){
+                if (requestType.contains("CAPTCHA")){
+                    try {
+                        Log.i(TAG, "Response For Captcha Recieved Successfully");
+//                        Log.i(TAG, response.toString());
+                        int statusCode = response.getInt("statusCode");
+                        if (statusCode == 200){
 
-                        // setting visibility of all views
-                        captchafield.setVisibility(View.VISIBLE);
-                        captchaStringField.setVisibility(View.VISIBLE);
-                        aadharNumberField.setVisibility(View.VISIBLE);
-                        getOtpButton.setVisibility(View.VISIBLE);
-                        refreshcaptchaButton.setVisibility(View.VISIBLE);
-                        captchaButton.setVisibility(View.GONE);
+                            // setting visibility of all views
+                            captchafield.setVisibility(View.VISIBLE);
+                            captchaStringField.setVisibility(View.VISIBLE);
+                            aadharNumberField.setVisibility(View.VISIBLE);
+                            getOtpButton.setVisibility(View.VISIBLE);
+                            refreshcaptchaButton.setVisibility(View.VISIBLE);
+                            captchaButton.setVisibility(View.GONE);
 
-                        // setting image to captcha field:-
-                        String base64captcha = response.getString("captchaBase64String");
-                        byte[] bytes=Base64.decode(base64captcha, Base64.DEFAULT);
-                        Bitmap bitmap_captcha = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-                        captchafield.setImageBitmap(bitmap_captcha);
+                            // Getting all the values from response
+                            String base64captcha = response.getString("captchaBase64String");
+                            String captchaTnxId = response.getString("captchaTxnId");
 
-                        // setting on click listener for Get Otp button:-
-                        captchaButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                String captchaString = captchaStringField.getEditText().getText().toString().trim();
-                                String aadharString = aadharNumberField.getEditText().getText().toString().trim();
 
-                                if(TextUtils.isEmpty(captchaString)){
-                                    captchaStringField.setError("required");
+                            // setting image to captcha field:-
+                            byte[] bytes=Base64.decode(base64captcha, Base64.DEFAULT);
+                            Bitmap bitmap_captcha = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                            captchafield.setImageBitmap(bitmap_captcha);
+
+                            // setting on click listener for Get Otp button:-
+                            getOtpButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    String captchaString = captchaStringField.getEditText().getText().toString().trim();
+                                    String aadharString = aadharNumberField.getEditText().getText().toString().trim();
+
+                                    if(TextUtils.isEmpty(captchaString)){
+                                        captchaStringField.setError("required");
+                                    }
+                                    if(TextUtils.isEmpty(aadharString)){
+                                        aadharNumberField.setError("required");
+                                    }
+
+                                    // Calling the get otp method now:-
+                                    method.generate_otp("OTPCALL", TAG, otp_generation_url, aadharString, captchaString, captchaTnxId);
                                 }
-                                if(TextUtils.isEmpty(aadharString)){
-                                    aadharNumberField.setError("required");
+                            });
+
+                            // refreshing the captcha when requested.
+                            refreshcaptchaButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    captchaStringField.getEditText().setText("");
+                                    method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
+                                    Snackbar.make(findViewById(R.id.captchaCoordinatorLayout), "Captcha Refreshed!",
+                                            Snackbar.LENGTH_SHORT)
+                                            .show();
                                 }
-                            }
-                        });
+                            });
 
-                        refreshcaptchaButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                captchaStringField.getEditText().setText("");
-                                callingApiFunction("POSTCALL", captcha_generation_url);
-                                Snackbar.make(findViewById(R.id.captchaCoordinatorLayout), "Captcha Refreshed!",
-                                        Snackbar.LENGTH_SHORT)
-                                        .show();
-                            }
-                        });
-
-                    }else{
-                        Toast.makeText(MainActivity.this, "Couldn't able to get Captcha, Please try again Later", Toast.LENGTH_LONG).show();
-                    }
+                        }else{
+                            Toast.makeText(MainActivity.this, "Couldn't able to get Captcha, Please try again...", Toast.LENGTH_LONG).show();
+                        }
 
 //                    String _message = response.getString("message");
 //                    if (_message.contains("User does not exists")){
@@ -155,32 +164,46 @@ public class MainActivity extends AppCompatActivity {
 //                        dialog.hide();
 //                        finishAffinity();
 //                    }
-                } catch (Exception e) {
-                    Log.e(TAG, "Has not contained message field...");
-                    e.printStackTrace();
+                    } catch (Exception e) {
+                        Log.e(TAG, "Some error occured while requesting Captcha...");
+                        Toast.makeText(MainActivity.this, "Some error Occured, Please Try Again Later.", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
+                } else if (requestType.contains("OTPCALL")){
+                    try {
+                        String status = response.getString("status");
+                        if (status.contains("Success")){
+                            Toast.makeText(MainActivity.this, "OTP sent successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, ));
+                        }
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "Some error occured while requesting Captcha...");
+                        Toast.makeText(MainActivity.this, "Error Occured while sending OTP, Please Try Again Later.", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
-                Log.d(TAG, "Volley requester " + requestType);
-                Log.d(TAG, "Volley JSONObjest post" + response.toString());
+//                Log.d(TAG, "Volley requester " + requestType);
+//                Log.d(TAG, "Volley JSONObjest post" + response.toString());
             }
 
             @Override
             public void notifySuccessArray(String requestType, JSONArray response) {
-                Log.d(TAG, "Volley requester " + requestType);
-                Log.d(TAG, "Volley JSONArray post" + response.toString());
+                Log.e(TAG, "Volley requester " + requestType);
+                Log.e(TAG, "Volley JSONArray post" + response.toString());
             }
 
             @Override
             public void notifyError(String requestType, VolleyError error) {
                 Toast.makeText(MainActivity.this, "Some error occured while Logging in...", Toast.LENGTH_SHORT).show();
 //                dialog.hide();
-                Log.e(TAG, "Volley requester " + requestType);
-                Log.e(TAG, "Volley error===>>>" + "That didn't work!");
+                Log.e(TAG, "Error occured while requesting API for" + requestType);
+                Log.e(TAG, "Volley error request type => " + requestType);
             }
 
             @Override
             public void ErrorString(String requestType, String error) {
                 Log.e(TAG, "Volley requester " + requestType);
-                Log.e(TAG, "Volley string error ===>>" + error);
             }
         };
     }
