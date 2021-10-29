@@ -128,9 +128,7 @@ public class api_methods {
     public void generate_ekyc(String requestType, String TAG, String url, String aadharNumber, String txnId, String otp, String sharecode) {
         RequestQueue queue = Volley.newRequestQueue(context);  // passing context is neccessary.
 
-        // generating uuid for sending it to the UIADI server
-        UUID uuid = UUID.randomUUID();
-        String uuidAsString = uuid.toString();
+        Log.d(TAG + classname, requestType + " " + url + " " + aadharNumber + " " + txnId + " " + otp + " " + sharecode);
 
         JSONObject js = new JSONObject();
         try {
@@ -166,8 +164,8 @@ public class api_methods {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Accept", "*/*");
+                headers.put("Content-Type", "application/json");
+//                headers.put("Accept", "*/*");
                 return headers;
             }
         };
