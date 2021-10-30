@@ -40,6 +40,9 @@ dependencies {
     // CUSTOM IMPORTS
     implementation 'com.google.android.material:material:1.2.1'
 
+    // FOR QR GENERATION
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+
     // for volley api requester:-
     implementation 'com.android.volley:volley:1.1.1'
 }

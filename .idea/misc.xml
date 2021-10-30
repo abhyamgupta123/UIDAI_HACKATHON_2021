@@ -7,10 +7,11 @@
         <entry key="app/src/main/res/drawable/circularcaptchabutton.xml" value="0.3927083333333333" />
         <entry key="app/src/main/res/layout/activity_kycgenerator.xml" value="0.3765625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_qrgnerator.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_captchafragment.xml" value="0.3765625" />
         <entry key="app/src/main/res/layout/fragment_ekyc_encryptor.xml" value="0.3765625" />
         <entry key="app/src/main/res/layout/fragment_ekyc_generator.xml" value="0.3765625" />
-        <entry key="app/src/main/res/layout/fragment_event_details.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/fragment_event_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_mainfragment.xml" value="0.3614583333333333" />
         <entry key="app/src/main/res/layout/password_prompt.xml" value="0.3765625" />
       </map>
