@@ -7,4 +7,22 @@
     <string name="qr_code">qr_code</string>
     <string name="enter_your_info">Enter your info</string>
     <string name="generate_qr_code">Generate QR Code</string>
+
+    <string name="show_this_qr_to_verifier">Show this QR to Verifier</string>
+    <string name="enter_aadhar_number">Enter Aadhar Number</string>
+    <string name="enter_captcha">Enter Captcha</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="refresh_captcha">Refresh Captcha</string>
+    <string name="create_your_secret_key">Create Your Secret Key</string>
+    <string name="enter_secret_password">Enter Secret Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="generate_ekyc">Generate eKYC</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify_otp">verify OTP</string>
+    <string name="enter_your_event_details">Enter Your Event Details</string>
+    <string name="full_name">Full Name</string>
+    <string name="event_unique_id">Event Unique ID</string>
+    <string name="register_event">Register Event</string>
+    <string name="generate_qr_code">Generate QR Code</string>
+    <string name="logout_exsisting_ekyc">Logout Exsisting EKYC</string>
 </resources>

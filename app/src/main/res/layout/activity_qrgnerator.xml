@@ -30,7 +30,7 @@
                 android:layout_height="300dp"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/qr_code"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints,ObsoleteLayoutParam" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView"
@@ -38,9 +38,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:clickable="false"
-                android:text="Show This QR to Verifier"
+                android:text="@string/show_this_qr_to_verifier"
                 android:textSize="30dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="SpUsage" />
 
         </LinearLayout>
 
