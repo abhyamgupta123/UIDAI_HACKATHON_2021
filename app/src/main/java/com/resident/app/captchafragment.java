@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.util.Base64;
@@ -88,12 +89,6 @@ public class captchafragment extends Fragment {
 
         aadharNumberField.getEditText().setText("999930226296");
 
-//        captchaButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
         return view;
     }
 
@@ -144,8 +139,10 @@ public class captchafragment extends Fragment {
                                         aadharNumberField.setError("required");
                                     }
 
-                                    // Calling the get otp method now:-
-                                    method.generate_otp("OTPCALL", TAG, otp_generation_url, aadharString, captchaString, captchaTnxId);
+                                    if (!(TextUtils.isEmpty(captchaString) && TextUtils.isEmpty(aadharString))){
+                                        // Calling the get otp method now:-
+                                        method.generate_otp("OTPCALL", TAG, otp_generation_url, aadharString, captchaString, captchaTnxId);
+                                    }
                                 }
                             });
 
@@ -155,7 +152,7 @@ public class captchafragment extends Fragment {
                                 public void onClick(View view) {
                                     captchaStringField.getEditText().setText("");
                                     method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
-                                    Snackbar.make(view.findViewById(R.id.captchaCoordinatorLayout), "Captcha Refreshed!",
+                                    Snackbar.make(getActivity().findViewById(R.id.captchaCoordinatorLayout), "Captcha Refreshed!",
                                             Snackbar.LENGTH_SHORT)
                                             .show();
                                 }
@@ -216,11 +213,18 @@ public class captchafragment extends Fragment {
                                         .show();
                             }
 
-                            // Opening other activity:-
-                            Intent KYCintent = new Intent(thiscontext, KYCGenerator.class);
-                            KYCintent.putExtra("_txn", txnid);              // adding data to pass in next activity.
-                            KYCintent.putExtra("aadhar", aadharString);     // adding data to pass in next activity.
-                            startActivity(KYCintent);
+                            // adding values to pass to ther activity:-
+                            Bundle args = new Bundle();
+                            args.putString("_txn", txnid);                          // adding data to pass in next activity.
+                            args.putString("aadhar", aadharString);                 // adding data to pass in next activity.
+
+                            Fragment ekycfragment = new ekycGeneratorFragment();
+                            ekycfragment.setArguments(args);
+
+                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.add(R.id.fraagment_view, ekycfragment);
+//                            fragmentTransaction.addToBackStack(null);
+                            fragmentTransaction.commit();
 
                         } else if (status.contains("Failure")){
                             int code = response.getInt("code");
@@ -229,13 +233,25 @@ public class captchafragment extends Fragment {
                                 Toast.makeText(thiscontext, "Server Problem or OTP already sent, Please refresh Captcha and reverify.", 3).show();
                                 Log.e(TAG, "OTP Already sent. Have to refresh captcha to resend the OTP and reverification.");
                             }else if (code==400){
-                                Snackbar.make(mainCordinatorLayout, "Invalid Captcha",
-                                        Snackbar.LENGTH_SHORT)
-                                        .show();
-                                Log.e(TAG, "Invalid Captcha now refreshing captcha.");
-                                Log.e(TAG, response.toString());
-                                captchaStringField.getEditText().setText("");
-                                method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
+                                String msg = response.getString("message");
+                                if (msg.contains("Invalid Aadhaar Number")){
+                                    Snackbar.make(mainCordinatorLayout, "Invalid AADHAR NUMBER",
+                                            Snackbar.LENGTH_LONG)
+                                            .show();
+                                    Log.e(TAG, "Invalid Aadhar Number now refreshing captcha.");
+                                    Log.e(TAG, response.toString());
+                                    captchaStringField.getEditText().setText("");
+                                    aadharNumberField.getEditText().setText("");
+                                    method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
+                                }else{
+                                    Snackbar.make(mainCordinatorLayout, "Invalid Captcha",
+                                            Snackbar.LENGTH_SHORT)
+                                            .show();
+                                    Log.e(TAG, "Invalid Captcha now refreshing captcha.");
+                                    Log.e(TAG, response.toString());
+                                    captchaStringField.getEditText().setText("");
+                                    method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
+                                }
                             }else{
                                 Toast.makeText(thiscontext, "Unknown error Occured, Try Again Later...", Toast.LENGTH_LONG).show();
                                 Log.e(TAG, "Uknown error Occured Please check the logs for more details.");
@@ -273,5 +289,4 @@ public class captchafragment extends Fragment {
             }
         };
     }
-
 }

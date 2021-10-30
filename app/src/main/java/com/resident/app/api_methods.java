@@ -128,7 +128,7 @@ public class api_methods {
     public void generate_ekyc(String requestType, String TAG, String url, String aadharNumber, String txnId, String otp, String sharecode) {
         RequestQueue queue = Volley.newRequestQueue(context);  // passing context is neccessary.
 
-        Log.d(TAG + classname, requestType + " " + url + " " + aadharNumber + " " + txnId + " " + otp + " " + sharecode);
+//        Log.d(TAG + classname, requestType + " " + url + " " + aadharNumber + " " + txnId + " " + otp + " " + sharecode);
 
         JSONObject js = new JSONObject();
         try {

@@ -67,7 +67,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="380dp"
+                    android:layout_marginTop="300dp"
                     android:hint="Enter Captcha"
                     android:scrollHorizontally="false"
                     android:textColorHint="@color/material_on_background_emphasis_high_type"

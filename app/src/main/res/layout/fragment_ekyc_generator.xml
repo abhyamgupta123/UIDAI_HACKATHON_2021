@@ -5,8 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/site_background_color"
-        tools:context=".KYCGenerator">
-
+        tools:context=".ekycGeneratorFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="190dp"
                 android:hint="Enter OTP"
                 android:scrollHorizontally="false"
                 android:textColorHint="@color/material_on_background_emphasis_high_type"
@@ -53,7 +52,7 @@
                 android:backgroundTint="@color/cardview_dark_background"
                 android:clickable="true"
                 android:focusable="true"
-                android:text="Generate eKYC"
+                android:text="verify OTP"
                 app:elevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"

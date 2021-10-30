@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ekycGeneratorFragment extends Fragment {
@@ -60,10 +62,9 @@ public class ekycGeneratorFragment extends Fragment {
 
         initVolleyCallback();
 
-        // Getting data from previoud activity.
-        Intent currentIntent = getActivity().getIntent();
-        _txnid = currentIntent.getStringExtra("_txn");
-        aadharNumber = currentIntent.getStringExtra("aadhar");
+        // Getting data from previoud fragment:-
+        _txnid = getArguments().getString("_txn");
+        aadharNumber = getArguments().getString("aadhar");
 
         // Assigning and finding views from activity:-
         otpField = (TextInputLayout) view.findViewById(R.id.otpfield);
@@ -78,6 +79,9 @@ public class ekycGeneratorFragment extends Fragment {
             public void onClick(View view) {
                 String otpString = otpField.getEditText().getText().toString().trim();
                 method.generate_ekyc("EKYC", TAG, ekyc_generate_url, aadharNumber, _txnid, otpString, "3112");
+//                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                fragmentTransaction.add(R.id.fraagment_view, new ekycEncryptorFragment());
+//                fragmentTransaction.commit();
             }
         });
 
@@ -90,50 +94,51 @@ public class ekycGeneratorFragment extends Fragment {
 
     void initVolleyCallback(){
         mResultCallback = new IResult() {
+
             @Override
             public void notifySuccess(String requestType, JSONObject response) {
                 if (requestType.contains("EKYC")){
                     try {
                         Log.i(TAG, "Response for EKYC Recieved Successfully");
-                        Log.i(TAG, response.toString());
-//                        int statusCode = response.getInt("statusCode");
-//
-//                        if (statusCode == 200){
-//
-//                        }else{
-//                            Toast.makeText(getApplicationContext(), "Couldn't able to get Captcha, Please try again...", Toast.LENGTH_LONG)
-//                                    .show();
-//                        }
+                        String status = response.getString("status");
+                        Log.d(TAG, "status code value important =>>>>>> " + status);
+                        if (status.contains("Success")){
+                            String _kycstr = response.getString("eKycXML");
+                            String _requestDate = response.getString("requestDate");
 
-//                    String _message = response.getString("message");
-//                    if (_message.contains("User does not exists")){
-//                        id.setError("User Doesn't Exsist");
-//                        dialog.hide();
-//                    }else if(_message.contains("Invalid Credentials")){
-//                        id.setError("Invalid Credentials");
-//                        pass.setError("Invalid Credentials");
-//                        dialog.hide();
-//                    }
-//                    else{
-//                        String _name = response.getString("name");
-//                        String _username = response.getString("username");
-//                        String _image = response.getString("image");
-//                        String _access_token = response.getString("access_token");
-//                        String _refresh_tocken = response.getString("refresh_token");
-//                        editor.putBoolean("isloggedin", true);
-//                        editor.putString("access_token", _access_token);
-//                        editor.putString("refresh_token", _refresh_tocken);
-//                        editor.putString("name", _name);
-//                        editor.putString("username", _username);
-//                        editor.putString("image", _image);
-//                        editor.commit();
-//                        Toast.makeText(Login.this, "Login Successfull!", Toast.LENGTH_SHORT).show();
-//                        startActivity(new Intent(Login.this, MainActivity.class));
-//                        dialog.hide();
-//                        finishAffinity();
-//                    }
+                            // adding values to pass to ther activity:-
+                            Bundle args = new Bundle();
+                            args.putString("_kycstr", _kycstr);                           // adding data to pass in next activity.
+                            args.putString("_requestDate", _requestDate);                 // adding data to pass in next activity.
+
+                            Fragment ekycEncryptorfragment = new ekycEncryptorFragment();
+                            ekycEncryptorfragment.setArguments(args);
+
+                            // Now transferring again to captcha generation fragment.
+                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.add(R.id.fraagment_view, ekycEncryptorfragment);
+                            fragmentTransaction.commit();
+                        }else if (status.contains("400")){
+//                            Log.e(TAG, "DONEEEEEE================");
+                            String errorCode = response.getString("errorCode");
+                            if (errorCode.contains("UES-VAL-002")){
+                                Log.e(TAG, "OTP IS Invelid...");
+                                Toast.makeText(thiscontext, "Invalid OTP! Try again.", Toast.LENGTH_SHORT)
+                                        .show();
+
+//                                    // Now transferring again to captcha generation fragment.
+//                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                                    fragmentTransaction.add(R.id.fraagment_view, captchafragment);
+////                                  fragmentTransaction.addToBackStack(null);
+//                                    fragmentTransaction.commit();
+
+                            }else if (errorCode.contains("UES-VAL-004")){
+                                Log.e(TAG, "Invalid Request!");
+                                Toast.makeText(thiscontext, "Unknown Error, Try contacting Developer!", Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
                     } catch (Exception e) {
-                        Log.e(TAG, "Some error occured while requesting Captcha...");
                         Toast.makeText(thiscontext, "Some error Occured, Please Try Again Later.", Toast.LENGTH_SHORT)
                                 .show();
                         e.printStackTrace();
