@@ -17,13 +17,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="120dp"
             android:clickable="false"
-            android:text="Enter Your Event Details"
+            android:text="@string/enter_your_event_details"
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpUsage" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -42,7 +43,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                android:hint="Full Name"
+                android:hint="@string/full_name"
                 android:scrollHorizontally="false"
                 android:textColorHint="@color/material_on_background_emphasis_high_type"
                 tools:ignore="MissingConstraints">
@@ -62,7 +63,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:hint="Event Unique ID"
+                android:hint="@string/event_unique_id"
                 android:scrollHorizontally="false"
                 android:textColorHint="@color/material_on_background_emphasis_high_type"
                 tools:ignore="MissingConstraints">
@@ -83,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Register Event"
+            android:text="@string/register_event"
             android:elevation="2dp"
             android:clickable="true"
             android:focusable="true"

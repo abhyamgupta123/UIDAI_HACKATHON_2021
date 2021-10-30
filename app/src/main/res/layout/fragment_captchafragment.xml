@@ -24,7 +24,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="0dp">
 
@@ -45,7 +45,7 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="25dp"
-                    android:hint="Enter Aadhar Number"
+                    android:hint="@string/enter_aadhar_number"
                     android:scrollHorizontally="false"
                     android:textColorHint="@color/material_on_background_emphasis_high_type"
                     app:layout_constraintBottom_toTopOf="@+id/captastring"
@@ -68,7 +68,7 @@
                     android:layout_width="350dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="300dp"
-                    android:hint="Enter Captcha"
+                    android:hint="@string/enter_captcha"
                     android:scrollHorizontally="false"
                     android:textColorHint="@color/material_on_background_emphasis_high_type"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
                     android:backgroundTint="@color/cardview_dark_background"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="Get OTP"
+                    android:text="@string/get_otp"
                     app:elevation="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/refreshCaptcha"
@@ -111,7 +111,7 @@
                     android:backgroundTint="@color/cardview_dark_background"
                     android:clickable="true"
                     android:focusable="true"
-                    android:text="Refresh Captcha"
+                    android:text="@string/refresh_captcha"
                     app:elevation="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
