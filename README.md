@@ -1,4 +1,4 @@
-# UIDAI_HACKATHON_2021
+# UIDAI_HACKATHON_2021 💻
 **Theme:** Authentication Reimagined 
 
 **Problem Statement:** Airport/Stadium/Railway check-in Application
@@ -22,8 +22,10 @@ To develop a solution for seamless check-in experiences using Aadhaar services w
 
 **Functionalities:**
 
-* Step 1 :
-* Step 2 :
-* Step 3 :
-* Step 4 :
-* Step 5 :  
+* Step 1 : The verifier application will scan the QR presented by resident and check it's validity.
+* Step 2 : Data recieved from the QR will contain Username, link to resident identity and key to decipher the resident's data.
+* Step 3 : The app will extract the signed eKYC from received data.
+* Step 4 : The verify button will trigger the headless app for stateless face match.
+* Step 5 : The resident's verification status will be displayed to the verifier. :heavy_check_mark:
+
+
