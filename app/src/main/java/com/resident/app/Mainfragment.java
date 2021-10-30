@@ -2,6 +2,7 @@ package com.resident.app;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -85,6 +86,9 @@ public class Mainfragment extends Fragment {
 
         String encryptedEkycString = sharedPreferences.getString("encodedKyc", "");
         String zipfilename = sharedPreferences.getString("_requestDate", "Empty.zip");
+        String link = sharedPreferences.getString("fileLink", "");
+        String userName = sharedPreferences.getString("Username", "");
+        String eventUID = sharedPreferences.getString("eventUID", "");
 
         if (!encryptedEkycString.isEmpty()){
             generateQrButton.setOnClickListener(new View.OnClickListener() {
@@ -107,9 +111,18 @@ public class Mainfragment extends Fragment {
                             dialog.dismiss();
                             try {
                                 String decryptedString = decryptString(encryptedEkycString, _pass);
-                                writeStringAsFile(decryptedString, zipfilename);
+//                                writeStringAsFile(decryptedString, zipfilename);
 
-                                Toast.makeText(thiscontext, decryptedString, Toast.LENGTH_SHORT).show();
+                                // Putting data to pass to QR activity:-
+                                Intent myIntent = new Intent(thiscontext, QRGneratorActivity.class);
+                                myIntent.putExtra("pass", _pass);
+                                myIntent.putExtra("url", link);
+                                myIntent.putExtra("userName", userName);
+                                myIntent.putExtra("eventUID", eventUID);
+
+                                thiscontext.startActivity(myIntent);
+                                                                                                                                                                                                    
+//                                Toast.makeText(thiscontext, decryptedString, Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 Log.e(TAG, "Couldn't able to decrypt String due to some reason, maybe password is wrong.");
@@ -137,6 +150,7 @@ public class Mainfragment extends Fragment {
             editor.remove("encodedKyc");
             editor.remove("ekycFlag");
             editor.remove("requestedDate");
+            editor.remove("fileLink");
 
             // Going to captcha fragment because the ekyc is not registered.
             FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -151,6 +165,7 @@ public class Mainfragment extends Fragment {
                 editor.remove("encodedKyc");
                 editor.remove("ekycFlag");
                 editor.remove("requestedDate");
+                editor.remove("fileLink");
                 editor.commit();
 
                 deleteFiles("Emptry.zip");
@@ -177,22 +192,22 @@ public class Mainfragment extends Fragment {
             }
         }
     }
-    public void writeStringAsFile(String fileContents, String fileName) throws IOException {
-
-        File path = thiscontext.getExternalFilesDir("eKYC");
-        Log.d(TAG, "===========>>>>> File path is " + path);
-
-        File file = new File(path, fileName);
-        FileOutputStream stream = new FileOutputStream(file);
-
-        try {
-            stream.write(fileContents.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            stream.close();
-        }
-    }
+//    public void writeStringAsFile(String fileContents, String fileName) throws IOException {
+//
+//        File path = thiscontext.getExternalFilesDir("eKYC");
+//        Log.d(TAG, "===========>>>>> File path is " + path);
+//
+//        File file = new File(path, fileName);
+//        FileOutputStream stream = new FileOutputStream(file);
+//
+//        try {
+//            stream.write(fileContents.getBytes());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            stream.close();
+//        }
+//    }
 
 //    public String readFileAsString(String fileName) {
 //        Context context = App.instance.getApplicationContext();
@@ -233,4 +248,6 @@ public class Mainfragment extends Fragment {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
         return secretKeySpec;
     }
+
+
 }

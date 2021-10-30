@@ -171,4 +171,45 @@ public class api_methods {
         };
         queue.add(postRequest);
     }
+
+    public void get_file_link(String requestType, String TAG, String url, String encodedString) {
+        RequestQueue queue = Volley.newRequestQueue(context);  // passing context is neccessary.
+
+        JSONObject js = new JSONObject();
+        try {
+            js.put("data", encodedString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url, js,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG + classname, "respose -> " + response.toString());
+//                        Log.d(TAG + classname, "respose messsage is -->" + response.getString("message"));
+                        Log.i(TAG + classname, "Response successfully recieved in api method class");
+                        mResultCallback.notifySuccess(requestType, response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        mResultCallback.notifyError("POSTCALL", error);
+                        Log.d(TAG, "Error.Response -> " + error);
+                        Log.d(TAG, "Error.Response -> " + error.getMessage());
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+//                headers.put("Accept", "*/*");
+                return headers;
+            }
+        };
+        queue.add(postRequest);
+    }
 }

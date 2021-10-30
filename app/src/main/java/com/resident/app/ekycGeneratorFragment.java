@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -88,6 +89,16 @@ public class ekycGeneratorFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
     api_methods callingApiFunction(){
         return new api_methods(mResultCallback, thiscontext);
     }
@@ -111,13 +122,14 @@ public class ekycGeneratorFragment extends Fragment {
                             args.putString("_kycstr", _kycstr);                           // adding data to pass in next activity.
                             args.putString("_requestDate", _requestDate);                 // adding data to pass in next activity.
 
-                            Fragment ekycEncryptorfragment = new ekycEncryptorFragment();
-                            ekycEncryptorfragment.setArguments(args);
+                            Fragment eventDetailsFragment = new eventDetails();
+                            eventDetailsFragment.setArguments(args);
 
                             // Now transferring again to captcha generation fragment.
                             FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.add(R.id.fraagment_view, ekycEncryptorfragment);
+                            fragmentTransaction.replace(R.id.fraagment_view, eventDetailsFragment);
                             fragmentTransaction.commit();
+
                         }else if (status.contains("400")){
 //                            Log.e(TAG, "DONEEEEEE================");
                             String errorCode = response.getString("errorCode");
@@ -129,7 +141,7 @@ public class ekycGeneratorFragment extends Fragment {
 //                                    // Now transferring again to captcha generation fragment.
 //                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                                    fragmentTransaction.add(R.id.fraagment_view, captchafragment);
-////                                  fragmentTransaction.addToBackStack(null);
+//                                    fragmentTransaction.addToBackStack(null);
 //                                    fragmentTransaction.commit();
 
                             }else if (errorCode.contains("UES-VAL-004")){

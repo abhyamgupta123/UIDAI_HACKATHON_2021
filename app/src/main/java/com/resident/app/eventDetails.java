@@ -1,64 +1,117 @@
 package com.resident.app;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link eventDetails#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.textfield.TextInputLayout;
+
 public class eventDetails extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    // For Logging Purpose and traceback
+    private static final String TAG = ekycEncryptorFragment.class.getName();
+    private static final String sharedPreferenceString = "UIDAI.GOV.INDIA";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // Global variable for storing active context:-
+    private Context thiscontext;
+
+    private String _kycstr;
+    private String _requestDate;
+
+    // For shared preferences:-
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
+    // views variables:-
+    private TextInputLayout nameField;
+    private TextInputLayout eventIdField;
+    private Button registerEventButton;
 
     public eventDetails() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment eventDetails.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static eventDetails newInstance(String param1, String param2) {
-        eventDetails fragment = new eventDetails();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_event_details, container, false);
+
+        // getting the context for this fragment:-
+        thiscontext = container.getContext();
+
+        // Finding Views from corresponding fragment:-
+        nameField = (TextInputLayout) view.findViewById(R.id.fullName);
+        eventIdField = (TextInputLayout) view.findViewById(R.id.eventId);
+        registerEventButton = (Button) view.findViewById(R.id.registerEvent);
+
+        // Using Sharedpreference:-
+        sharedPreferences = thiscontext.getApplicationContext().getSharedPreferences(sharedPreferenceString, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+
+        registerEventButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String userName = nameField.getEditText().getText().toString().trim();
+                String eventId = eventIdField.getEditText().getText().toString().trim();
+
+                if(TextUtils.isEmpty(userName)){
+                    nameField.setError("required");
+                }
+                if(TextUtils.isEmpty(eventId)){
+                    eventIdField.setError("required");
+                }
+
+                if (!(TextUtils.isEmpty(userName) && TextUtils.isEmpty(eventId))){
+                    editor.putString("Username", userName);
+                    editor.putString("eventUID", eventId);
+                    editor.commit();
+
+                    // Getting data from previoud fragment:-
+                    _kycstr = getArguments().getString("_kycstr");
+                    _requestDate = getArguments().getString("_requestDate");
+
+                    // adding values to pass to ther activity:-
+                    Bundle args = new Bundle();
+                    args.putString("_kycstr", _kycstr);
+                    args.putString("_requestDate", _requestDate);
+
+                    Fragment ekycEncryptorfragment = new ekycEncryptorFragment();
+                    ekycEncryptorfragment.setArguments(args);
+
+                    // Now transferring again to captcha generation fragment.
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.fraagment_view, ekycEncryptorfragment);
+                    fragmentTransaction.commit();
+                }
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

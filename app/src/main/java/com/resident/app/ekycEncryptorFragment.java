@@ -16,11 +16,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.security.MessageDigest;
 
@@ -39,8 +44,13 @@ public class ekycEncryptorFragment extends Fragment {
 //    private Button decryptButton;
 
 
+    // FOR APIs Work
+    private IResult mResultCallback = null;
+    private api_methods method;
+
     private String keyXML;
     private String requestDate;
+    private String storageUrl = "https://storage.abhis.me/create";
 
     // Global variable for storing active context:-
     private Context thiscontext;
@@ -67,6 +77,8 @@ public class ekycEncryptorFragment extends Fragment {
         // getting the context for this fragment:-
         thiscontext = container.getContext();
 
+        initVolleyCallback();
+
         // Finding Views from corresponding fragment:-
         passField1 = (TextInputLayout) view.findViewById(R.id.pass1Field);
         passField2 = (TextInputLayout) view.findViewById(R.id.pass2Field);
@@ -78,6 +90,8 @@ public class ekycEncryptorFragment extends Fragment {
         sharedPreferences = thiscontext.getApplicationContext().getSharedPreferences(sharedPreferenceString, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+        // Initialising and calling API methods class before.
+        method = callingApiFunction();
 
         // Setting on click listene:-
         generateekycButton.setOnClickListener(new View.OnClickListener() {
@@ -102,26 +116,22 @@ public class ekycEncryptorFragment extends Fragment {
                 }
 
                 if (_pass1.equals(_pass2)){
+
                     // Getting data from previoud fragment:-
                     keyXML = getArguments().getString("_kycstr");
                     requestDate = getArguments().getString("_requestDate");
+
                     Log.e(TAG, "==========>>>>>>>>>>>>> requestDate is " + requestDate);
 
                     try {
                         String encryptedString = encryptString(keyXML, _pass1);
+                        method.get_file_link("STORAGE", TAG, storageUrl, encryptedString);
 
                         // putting value in shared preference:-
                         editor.putString("encodedKyc", encryptedString);
                         editor.putString("requestedDate", requestDate + ".zip");
                         editor.putBoolean("ekycFlag", true);
                         editor.commit();
-
-                        Toast.makeText(thiscontext, "eKYC registered Successfully...", Toast.LENGTH_SHORT)
-                                .show();
-                        // Now transferring again to captcha generation fragment.
-                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.add(R.id.fraagment_view, new Mainfragment());
-                        fragmentTransaction.commit();
 
 //                        Toast.makeText(thiscontext, encryptedString, Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
@@ -138,23 +148,17 @@ public class ekycEncryptorFragment extends Fragment {
                 }
             }
         });
-//        decryptButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String _pass1 = passField1.getEditText().getText().toString().trim();
-//                String _pass2 = passField2.getEditText().getText().toString().trim();
-//
-//                try{
-//                    String decryptedString = decryptString(t, _pass1);
-//                    Toast.makeText(thiscontext, decryptedString, Toast.LENGTH_SHORT).show();
-//                } catch (Exception e){
-//                    e.printStackTrace();
-//                    Toast.makeText(thiscontext, "Error Encrypting your EKYC, Try Again.", Toast.LENGTH_LONG)
-//                            .show();
-//                }
-//            }
-//        });
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
 //    private String decryptString(String outputString, String password) throws Exception{
@@ -184,5 +188,63 @@ public class ekycEncryptorFragment extends Fragment {
         byte[] key = digest.digest();
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
         return secretKeySpec;
+    }
+
+    api_methods callingApiFunction(){
+        return new api_methods(mResultCallback, thiscontext);
+    }
+
+    void initVolleyCallback(){
+        mResultCallback = new IResult() {
+
+            @Override
+            public void notifySuccess(String requestType, JSONObject response) {
+                if (requestType.contains("STORAGE")){
+                    try {
+                        Log.i(TAG, "Response for EKYC Recieved Successfully");
+                        String link = response.getString("link");
+
+                        editor.putString("fileLink", link);
+                        editor.commit();
+
+//                        Log.e(TAG, "LINK IS =======>>>>" + link);
+
+                        Toast.makeText(thiscontext, "eKYC registered Successfully...", Toast.LENGTH_SHORT)
+                                .show();
+                        // Now transferring again to captcha generation fragment.
+                        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fraagment_view, new Mainfragment());
+                        fragmentTransaction.commit();
+
+                    } catch (Exception e) {
+                        Toast.makeText(thiscontext, "Some error Occured, Please Try Again.", Toast.LENGTH_LONG)
+                                .show();
+                        e.printStackTrace();
+                    }
+                }
+//                Log.d(TAG, "Volley requester " + requestType);
+//                Log.d(TAG, "Volley JSONObjest post" + response.toString());
+            }
+
+            @Override
+            public void notifySuccessArray(String requestType, JSONArray response) {
+                Log.e(TAG, "Volley requester " + requestType);
+                Log.e(TAG, "Volley JSONArray post" + response.toString());
+            }
+
+            @Override
+            public void notifyError(String requestType, VolleyError error) {
+                Toast.makeText(thiscontext, "Some error occured while Logging in...", Toast.LENGTH_SHORT)
+                        .show();
+//                dialog.hide();
+                Log.e(TAG, "Error occured while requesting API for" + requestType);
+                Log.e(TAG, "Volley error request type => " + requestType);
+            }
+
+            @Override
+            public void ErrorString(String requestType, String error) {
+                Log.e(TAG, "Volley requester " + requestType);
+            }
+        };
     }
 }

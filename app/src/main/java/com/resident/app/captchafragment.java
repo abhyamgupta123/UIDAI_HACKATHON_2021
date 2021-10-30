@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -90,6 +91,16 @@ public class captchafragment extends Fragment {
         aadharNumberField.getEditText().setText("999930226296");
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     api_methods callingApiFunction(){
@@ -222,7 +233,7 @@ public class captchafragment extends Fragment {
                             ekycfragment.setArguments(args);
 
                             FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            fragmentTransaction.add(R.id.fraagment_view, ekycfragment);
+                            fragmentTransaction.replace(R.id.fraagment_view, ekycfragment);
 //                            fragmentTransaction.addToBackStack(null);
                             fragmentTransaction.commit();
 
