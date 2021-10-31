@@ -28,7 +28,7 @@ To develop a solution for seamless check-in experiences using Aadhaar services w
 * Step 4 : The verify button will trigger the headless app for stateless face match.
 * Step 5 : The resident's verification status will be displayed to the verifier. :heavy_check_mark:
 
-### Presentation Exaplaining Approach: 
+### Presentation Exaplaining Approach: https://docs.google.com/presentation/d/1sKiK6BHCwg1Kd-12d3T7r0TqHNOkZsBM/edit?usp=sharing&ouid=104321324916921452569&rtpof=true&sd=true 
 
 **(SNAPSHOTS OF BOTH THE APPLICATIONS ARE ATTACHED IN THE PRESENTATION)**
 ### Link to demonstration video: https://www.youtube.com/channel/UCEStLWb2sRY5y1ZEqzjm1Mg 
