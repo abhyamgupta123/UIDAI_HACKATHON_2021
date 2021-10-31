@@ -29,4 +29,6 @@ To develop a solution for seamless check-in experiences using Aadhaar services w
 * Step 5 : The resident's verification status will be displayed to the verifier. :heavy_check_mark:
 
 ### Presentation Exaplaining Approach: 
+
+**(SNAPSHOTS OF BOTH THE APPLICATIONS ARE ATTACHED IN THE PRESENTATION)**
 ### Link to demonstration video: https://www.youtube.com/channel/UCEStLWb2sRY5y1ZEqzjm1Mg 
