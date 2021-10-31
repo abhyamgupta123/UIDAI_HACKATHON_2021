@@ -38,7 +38,6 @@ public class api_methods {
             js.put("langCode", "en");
             js.put("captchaLength", "3");
             js.put("captchaType", "2");
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

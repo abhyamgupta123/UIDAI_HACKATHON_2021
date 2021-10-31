@@ -1,5 +1,6 @@
 package com.resident.app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
@@ -54,6 +56,9 @@ public class captchafragment extends Fragment {
     private String captcha_generation_url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/get/captcha";
     private String otp_generation_url = "https://stage1.uidai.gov.in/unifiedAppAuthService/api/v2/generate/aadhaar/otp";
 
+    // Progressbar dialog:-
+    private ProgressDialog loadingDialog;
+
 
     public captchafragment() {
         // Required empty public constructor
@@ -87,6 +92,9 @@ public class captchafragment extends Fragment {
         // Initialising and calling API methods class before.
         method = callingApiFunction();
         method.generate_captcha("CAPTCHA", TAG, captcha_generation_url);
+        // Showing progress window:-
+//        loadingDialog = ProgressDialog.show(thiscontext, "Generating Captcha",
+//                "Loading. Please wait...", true);
 
         aadharNumberField.getEditText().setText("999930226296");
 
