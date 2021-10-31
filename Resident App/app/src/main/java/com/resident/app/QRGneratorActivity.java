@@ -59,7 +59,7 @@ public class QRGneratorActivity extends AppCompatActivity {
         int dimen = width < height ? width : height;
         dimen = dimen * 3 / 4;
 
-        String qrStringToSend = usernName + "," + eventId + "," + link + "," + pass;
+        String qrStringToSend = "UIDAI://," + usernName + "," + eventId + "," + link + "," + pass;
         qrgEncoder = new QRGEncoder(qrStringToSend, null, QRGContents.Type.TEXT, dimen);
         try {
             bitmap = qrgEncoder.encodeAsBitmap();

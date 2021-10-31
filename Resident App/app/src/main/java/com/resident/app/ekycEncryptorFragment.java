@@ -103,9 +103,11 @@ public class ekycEncryptorFragment extends Fragment {
 
                 if (_pass1.length()<6){
                     passField1.setError("Length Less than 6");
+                    return;
                 }
                 if (_pass2.length()<6){
                     passField2.setError("Length Less than 6");
+                    return;
                 }
 
                 if(TextUtils.isEmpty(_pass1)){
