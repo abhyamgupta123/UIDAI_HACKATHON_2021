@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
 MERGED from [com.google.android.material:material:1.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/10ac2d58c63923337b7cb9a5b99294cd/transformed/material-1.3.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/abb6881cbcf98379538a026836b784ae/transformed/constraintlayout-2.0.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/f7fb5c916ca0323013aac05c0e61f6a7/transformed/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
@@ -48,29 +48,29 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/abhyamias/Desktop/u
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/ad483d49ebe3914dd8dd4de7096e9f06/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/87baabf9a3b9536c6178481a803d27d0/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/7c0135055de6a38244109a6ad93c3c66/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
 	package
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:3:5-40
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:3:5-40
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:1-34:12
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:1-34:12
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:5:5-67
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:5:22-64
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:7:5-32:19
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:7:5-32:19
 MERGED from [com.google.android.material:material:1.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/10ac2d58c63923337b7cb9a5b99294cd/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/10ac2d58c63923337b7cb9a5b99294cd/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/abb6881cbcf98379538a026836b784ae/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
@@ -84,55 +84,55 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/abhya
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/79d5ad77e54b36a6c6639a963d990aed/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:10:9-41
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:11:9-54
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:8:9-35
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:13:9-51
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:13:9-51
 activity#com.example.verifieruidai.FinalResultActivity
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:14:9-16:39
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:14:9-16:39
 	android:exported
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:16:13-36
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:16:13-36
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:15:13-48
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:15:13-48
 activity#com.example.verifieruidai.ResultActivity
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:17:9-19:39
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:17:9-19:39
 	android:exported
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:19:13-36
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:19:13-36
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:18:13-43
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:18:13-43
 activity#com.example.verifieruidai.QRActivity
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:20:9-22:39
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:20:9-22:39
 	android:exported
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:22:13-36
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:21:13-39
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:21:13-39
 activity#com.example.verifieruidai.MainActivity
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:23:9-31:20
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:23:9-31:20
 	android:exported
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:25:13-36
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:24:13-41
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:24:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:26:13-30:29
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:26:13-30:29
 action#android.intent.action.MAIN
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:27:17-69
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:27:25-66
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:27:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:29:17-77
+ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:29:17-77
 	android:name
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:29:27-74
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml:29:27-74
 uses-sdk
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/10ac2d58c63923337b7cb9a5b99294cd/transformed/material-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/10ac2d58c63923337b7cb9a5b99294cd/transformed/material-1.3.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/abb6881cbcf98379538a026836b784ae/transformed/constraintlayout-2.0.4/AndroidManifest.xml:5:5-7:41
@@ -221,16 +221,16 @@ MERGED from [androidx.print:print:1.0.0] /home/abhyamias/Desktop/uidia_hack_bc/t
 MERGED from [androidx.print:print:1.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/87baabf9a3b9536c6178481a803d27d0/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/7c0135055de6a38244109a6ad93c3c66/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/7c0135055de6a38244109a6ad93c3c66/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
-		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		ADDED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
+		INJECTED from /home/abhyamias/Desktop/uidia_hack_bc/FINSL/UIDAI_HACKATHON_2021/Verifier App/code/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.CAMERA
 ADDED from [com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:22:5-65
 	android:name
