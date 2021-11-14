@@ -1,301 +1,126 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="in.gov.uidai.auasample"
+3    package="com.example.verifieruidai"
 4    android:versionCode="1"
-5    android:versionName="1.14" >
+5    android:versionName="1.0" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml
-9        android:targetSdkVersion="29" />
-9-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml
+8-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml
 10
-11    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-11-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:6:5-81
-11-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:6:22-78
-12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-12-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:7:5-80
-12-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:7:22-77
-13    <uses-permission android:name="android.permission.INTERNET" />
-13-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:8:5-67
-13-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:8:22-64
-14    <uses-permission android:name="android.permission.CAMERA" />
-14-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:9:5-65
-14-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:9:22-62
-15
-16    <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
-17    <uses-feature
-17-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:25:5-27:36
-18        android:name="android.hardware.camera"
-18-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:26:9-47
-19        android:required="false" />
-19-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:27:9-33
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:5:5-67
+11-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.CAMERA" /> <!-- Don't require camera, as this requires a rear camera. This allows it to work on the Nexus 7 -->
+12-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:22:5-65
+12-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:22:22-62
+13    <uses-feature
+13-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:25:5-27:36
+14        android:name="android.hardware.camera"
+14-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:26:9-47
+15        android:required="false" />
+15-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:27:9-33
+16    <uses-feature
+16-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:28:5-30:36
+17        android:name="android.hardware.camera.front"
+17-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:29:9-53
+18        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
+18-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:30:9-33
+19    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
 20    <uses-feature
-20-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:28:5-30:36
-21        android:name="android.hardware.camera.front"
-21-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:29:9-53
-22        android:required="false" /> <!-- TODO replace above two with next line after Android 4.2 -->
-22-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:30:9-33
-23    <!-- <uses-feature android:name="android.hardware.camera.any"/> -->
-24    <uses-feature
-24-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:33:5-35:36
-25        android:name="android.hardware.camera.autofocus"
-25-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:34:9-57
-26        android:required="false" />
-26-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:35:9-33
-27    <uses-feature
-27-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:36:5-38:36
-28        android:name="android.hardware.camera.flash"
-28-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:37:9-53
-29        android:required="false" />
-29-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:38:9-33
-30    <uses-feature
-30-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:39:5-41:36
-31        android:name="android.hardware.screen.landscape"
-31-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:40:9-57
-32        android:required="false" />
-32-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:41:9-33
-33    <uses-feature
-33-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:42:5-44:36
-34        android:name="android.hardware.wifi"
-34-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:43:9-45
-35        android:required="false" />
-35-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:44:9-33
-36
-37    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-37-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:22:5-79
-37-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:22:22-76
-38    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-38-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:24:5-68
-38-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:24:22-65
-39    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-39-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:26:5-82
-39-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:26:22-79
-40
-41    <application
-41-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:11:5-78:19
-42        android:allowBackup="true"
-42-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:12:9-35
-43        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-43-->[androidx.core:core:1.2.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/eb9e01633ffd91df4f8ad8eced85dc7a/core-1.2.0/AndroidManifest.xml:24:18-86
-44        android:debuggable="true"
-45        android:hardwareAccelerated="false"
-45-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:13:9-44
-46        android:icon="@mipmap/ic_launcher"
-46-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:14:9-43
-47        android:label="@string/app_name"
-47-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:15:9-41
-48        android:networkSecurityConfig="@xml/network_security_config"
-48-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:16:9-69
-49        android:roundIcon="@mipmap/ic_launcher_round"
-49-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:17:9-54
-50        android:theme="@style/AppTheme" >
-50-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:18:9-40
-51        <activity
-51-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:21:9-30:20
-52            android:name="in.gov.uidai.auasample.MainActivity"
-52-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:22:13-41
-53            android:screenOrientation="portrait" >
-53-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:23:13-49
-54            <intent-filter>
-54-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:25:13-29:29
-55                <action android:name="android.intent.action.MAIN" />
-55-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:26:17-69
-55-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:26:25-66
-56
-57                <category android:name="android.intent.category.LAUNCHER" />
-57-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:28:17-77
-57-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:28:27-74
-58            </intent-filter>
-59        </activity>
-60        <activity
-60-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:31:9-34:56
-61            android:name="in.gov.uidai.auasample.online.authenticate.AuthenticateUsingFaceActivity"
-61-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:32:13-78
-62            android:screenOrientation="portrait" />
-62-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:33:13-49
-63        <activity
-63-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:35:9-38:56
-64            android:name="in.gov.uidai.auasample.checkLighting.CheckLightingActivity"
-64-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:36:13-64
-65            android:screenOrientation="portrait" />
-65-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:37:13-49
-66        <activity
-66-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:39:9-42:56
-67            android:name="in.gov.uidai.auasample.deviceCheck.DeviceCheckActivity"
-67-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:40:13-60
-68            android:screenOrientation="portrait" />
-68-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:41:13-49
-69        <activity
-69-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:43:9-46:56
-70            android:name="in.gov.uidai.auasample.online.register.RegisterUsingFaceActivity"
-70-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:44:13-70
-71            android:screenOrientation="portrait" />
-71-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:45:13-49
-72        <activity
-72-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:47:9-50:56
-73            android:name="in.gov.uidai.auasample.offline.OfflineFlowActivity"
-73-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:48:13-56
-74            android:screenOrientation="portrait" />
-74-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:49:13-49
-75        <activity
-75-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:51:9-54:56
-76            android:name="in.gov.uidai.auasample.ResultActivity"
-76-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:52:13-43
-77            android:screenOrientation="portrait" />
-77-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:53:13-49
-78        <activity
-78-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:55:9-58:56
-79            android:name="in.gov.uidai.auasample.online.qr.ScanQRActivity"
-79-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:56:13-53
-80            android:screenOrientation="portrait" />
-80-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:57:13-49
-81        <activity
-81-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:59:9-62:55
-82            android:name="in.gov.uidai.auasample.deviceInfo.DeviceInfoActivity"
-82-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:60:13-58
-83            android:screenOrientation="portrait" />
-83-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:61:13-49
-84        <activity
-84-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:64:9-67:56
-85            android:name="in.gov.uidai.auasample.stateless.match.StatelessMatchActivity"
-85-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:65:13-67
-86            android:screenOrientation="portrait" />
-86-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:66:13-49
-87
-88        <provider
-88-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:69:9-77:20
-89            android:name="androidx.core.content.FileProvider"
-89-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:70:13-62
-90            android:authorities="in.gov.uidai.auasample.fileprovider"
-90-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:71:13-70
-91            android:exported="false"
-91-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:72:13-37
-92            android:grantUriPermissions="true" >
-92-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:73:13-47
-93            <meta-data
-93-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:74:13-76:53
-94                android:name="android.support.FILE_PROVIDER_PATHS"
-94-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:75:17-67
-95                android:resource="@xml/file_path" />
-95-->/home/abhyamias/Desktop/uidia_hack_bc/resident/Verifier App/code/app/src/main/AndroidManifest.xml:76:17-50
-96        </provider>
-97
-98        <service
-98-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:13:9-19:19
-99            android:name="com.google.firebase.components.ComponentDiscoveryService"
-99-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:14:13-84
-100            android:directBootAware="true"
-100-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
-101            android:exported="false" >
-101-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:15:13-37
-102            <meta-data
-102-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:16:13-18:85
-103                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
-103-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:17:17-115
-104                android:value="com.google.firebase.components.ComponentRegistrar" />
-104-->[com.google.firebase:firebase-crashlytics:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/63443e7441778515c7b50605d7949eff/jetified-firebase-crashlytics-17.0.0/AndroidManifest.xml:18:17-82
-105            <meta-data
-105-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:32:13-34:85
-106                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-106-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:33:17-96
-107                android:value="com.google.firebase.components.ComponentRegistrar" />
-107-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:34:17-82
-108            <meta-data
-108-->[com.google.firebase:firebase-installations:16.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/de1ec649278ccb28f78d3c16bb5f4333/jetified-firebase-installations-16.2.1/AndroidManifest.xml:17:13-19:85
-109                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-109-->[com.google.firebase:firebase-installations:16.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/de1ec649278ccb28f78d3c16bb5f4333/jetified-firebase-installations-16.2.1/AndroidManifest.xml:18:17-127
-110                android:value="com.google.firebase.components.ComponentRegistrar" />
-110-->[com.google.firebase:firebase-installations:16.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/de1ec649278ccb28f78d3c16bb5f4333/jetified-firebase-installations-16.2.1/AndroidManifest.xml:19:17-82
-111        </service>
-112
-113        <activity
-113-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:47:9-53:63
-114            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-114-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:48:13-74
-115            android:clearTaskOnLaunch="true"
-115-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:49:13-45
-116            android:screenOrientation="sensorLandscape"
-116-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:50:13-56
-117            android:stateNotNeeded="true"
-117-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:51:13-42
-118            android:theme="@style/zxing_CaptureTheme"
-118-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:52:13-54
-119            android:windowSoftInputMode="stateAlwaysHidden" />
-119-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/66b57cfc0c12e489d4a66f7e0e7c338b/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:53:13-60
-120
-121        <receiver
-121-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:37:9-44:20
-122            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-122-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:38:13-78
-123            android:exported="true"
-123-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:39:13-36
-124            android:permission="com.google.android.c2dm.permission.SEND" >
-124-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:40:13-73
-125            <intent-filter>
-125-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:41:13-43:29
-126                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-126-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:42:17-81
-126-->[com.google.firebase:firebase-iid:20.1.5] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/351b6cfd6cce6c1f6f0f7f18686ce2ec/jetified-firebase-iid-20.1.5/AndroidManifest.xml:42:25-78
-127            </intent-filter>
-128        </receiver>
-129
-130        <provider
-130-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
-131            android:name="com.google.firebase.provider.FirebaseInitProvider"
-131-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-132            android:authorities="in.gov.uidai.auasample.firebaseinitprovider"
-132-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
-133            android:exported="false"
-133-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
-134            android:initOrder="100" />
-134-->[com.google.firebase:firebase-common:19.3.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/db94ae4e603bc333161102a1ba786b04/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
-135
-136        <activity
-136-->[com.google.android.gms:play-services-base:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/96562225689a3ac9500e579fd13437b2/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-137            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-137-->[com.google.android.gms:play-services-base:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/96562225689a3ac9500e579fd13437b2/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-138            android:exported="false"
-138-->[com.google.android.gms:play-services-base:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/96562225689a3ac9500e579fd13437b2/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-139-->[com.google.android.gms:play-services-base:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/96562225689a3ac9500e579fd13437b2/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-140
-141        <meta-data
-141-->[com.google.android.gms:play-services-basement:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/aad8738f7beecd0bfc181466ed636be3/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-142            android:name="com.google.android.gms.version"
-142-->[com.google.android.gms:play-services-basement:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/aad8738f7beecd0bfc181466ed636be3/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-143            android:value="@integer/google_play_services_version" />
-143-->[com.google.android.gms:play-services-basement:17.0.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/aad8738f7beecd0bfc181466ed636be3/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-144
-145        <service
-145-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:29:9-35:19
-146            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-146-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:30:13-103
-147            android:exported="false" >
-147-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:31:13-37
-148            <meta-data
-148-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:32:13-34:39
-149                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-149-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:33:17-94
-150                android:value="cct" />
-150-->[com.google.android.datatransport:transport-backend-cct:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/64559506593e74954a2b536cbdcd3942/jetified-transport-backend-cct-2.2.1/AndroidManifest.xml:34:17-36
-151        </service>
-152        <service
-152-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:26:9-30:19
-153            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-153-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:27:13-117
-154            android:exported="false"
-154-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:28:13-37
-155            android:permission="android.permission.BIND_JOB_SERVICE" >
-155-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:29:13-69
-156        </service>
-157
-158        <receiver
-158-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:32:9-34:40
-159            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-159-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:33:13-132
-160            android:exported="false" />
-160-->[com.google.android.datatransport:transport-runtime:2.2.1] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-2/files-2.1/214fba3328a281a68a594a59bb87ead2/jetified-transport-runtime-2.2.1/AndroidManifest.xml:34:13-37
-161    </application>
-162
-163</manifest>
+20-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:33:5-35:36
+21        android:name="android.hardware.camera.autofocus"
+21-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:34:9-57
+22        android:required="false" />
+22-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:35:9-33
+23    <uses-feature
+23-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:36:5-38:36
+24        android:name="android.hardware.camera.flash"
+24-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:37:9-53
+25        android:required="false" />
+25-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:38:9-33
+26    <uses-feature
+26-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:39:5-41:36
+27        android:name="android.hardware.screen.landscape"
+27-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:40:9-57
+28        android:required="false" />
+28-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:41:9-33
+29    <uses-feature
+29-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:42:5-44:36
+30        android:name="android.hardware.wifi"
+30-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:43:9-45
+31        android:required="false" />
+31-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:44:9-33
+32
+33    <application
+33-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:7:5-32:19
+34        android:allowBackup="true"
+34-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:8:9-35
+35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+35-->[androidx.core:core:1.7.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/79d5ad77e54b36a6c6639a963d990aed/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+36        android:debuggable="true"
+37        android:icon="@mipmap/ic_launcher"
+37-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:9:9-43
+38        android:label="@string/app_name"
+38-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:10:9-41
+39        android:roundIcon="@mipmap/ic_launcher_round"
+39-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:11:9-54
+40        android:supportsRtl="true"
+40-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:12:9-35
+41        android:testOnly="true"
+42        android:theme="@style/Theme.VerifierUIDAI" >
+42-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:13:9-51
+43        <activity
+43-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:14:9-16:39
+44            android:name="com.example.verifieruidai.FinalResultActivity"
+44-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:15:13-48
+45            android:exported="true" />
+45-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:16:13-36
+46        <activity
+46-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:17:9-19:39
+47            android:name="com.example.verifieruidai.ResultActivity"
+47-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:18:13-43
+48            android:exported="true" />
+48-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:19:13-36
+49        <activity
+49-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:20:9-22:39
+50            android:name="com.example.verifieruidai.QRActivity"
+50-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:21:13-39
+51            android:exported="true" />
+51-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:22:13-36
+52        <activity
+52-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:23:9-31:20
+53            android:name="com.example.verifieruidai.MainActivity"
+53-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:24:13-41
+54            android:exported="true" >
+54-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:25:13-36
+55            <intent-filter>
+55-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:26:13-30:29
+56                <action android:name="android.intent.action.MAIN" />
+56-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:27:17-69
+56-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:27:25-66
+57
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:29:17-77
+58-->/home/abhyamias/Desktop/uidia_hack_bc/verifierUIDAI/app/src/main/AndroidManifest.xml:29:27-74
+59            </intent-filter>
+60        </activity>
+61        <activity
+61-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:47:9-53:63
+62            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+62-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:48:13-74
+63            android:clearTaskOnLaunch="true"
+63-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:49:13-45
+64            android:screenOrientation="sensorLandscape"
+64-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:50:13-56
+65            android:stateNotNeeded="true"
+65-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:51:13-42
+66            android:theme="@style/zxing_CaptureTheme"
+66-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:52:13-54
+67            android:windowSoftInputMode="stateAlwaysHidden" />
+67-->[com.journeyapps:zxing-android-embedded:3.6.0] /home/abhyamias/Desktop/uidia_hack_bc/testing/gradlenew/caches/transforms-3/cdb90193356ad351f355b7f5d72eb8e2/transformed/jetified-zxing-android-embedded-3.6.0/AndroidManifest.xml:53:13-60
+68    </application>
+69
+70</manifest>
