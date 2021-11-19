@@ -72,7 +72,7 @@ public class api_methods {
         queue.add(postRequest);
     }
 
-    public void generate_otp(String requestType, String TAG, String url, String aadharNumber, String captchaValue, String captchaTnxId) {
+    public String generate_otp(String requestType, String TAG, String url, String aadharNumber, String captchaValue, String captchaTnxId) {
         RequestQueue queue = Volley.newRequestQueue(context);  // passing context is neccessary.
 
         // generating uuid for sending it to the UIADI server
@@ -122,9 +122,11 @@ public class api_methods {
             }
         };
         queue.add(postRequest);
+        Log.e(TAG, "--> " + uuidAsString);
+        return uuidAsString;
     }
 
-    public void generate_ekyc(String requestType, String TAG, String url, String aadharNumber, String txnId, String otp, String sharecode) {
+    public void generate_ekyc(String requestType, String TAG, String url, String aadharNumber, String txnId, String otp, String sharecode, String uuidStr) {
         RequestQueue queue = Volley.newRequestQueue(context);  // passing context is neccessary.
 
 //        Log.d(TAG + classname, requestType + " " + url + " " + aadharNumber + " " + txnId + " " + otp + " " + sharecode);
@@ -164,6 +166,10 @@ public class api_methods {
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json");
+                headers.put("Accept", "*/*");
+                headers.put("appID", "PORTAL");
+                headers.put("X-Request-ID", uuidStr);
+                headers.put("transactionId", txnId);
 //                headers.put("Accept", "*/*");
                 return headers;
             }

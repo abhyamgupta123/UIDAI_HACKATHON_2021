@@ -39,6 +39,7 @@ public class captchafragment extends Fragment {
     // FOR APIs Work
     private IResult mResultCallback = null;
     private api_methods method;
+    private String uuidString;
 
     // Defining Variables for global views:-
     private CoordinatorLayout mainCordinatorLayout;
@@ -160,7 +161,7 @@ public class captchafragment extends Fragment {
 
                                     if (!(TextUtils.isEmpty(captchaString) && TextUtils.isEmpty(aadharString))){
                                         // Calling the get otp method now:-
-                                        method.generate_otp("OTPCALL", TAG, otp_generation_url, aadharString, captchaString, captchaTnxId);
+                                        uuidString = method.generate_otp("OTPCALL", TAG, otp_generation_url, aadharString, captchaString, captchaTnxId);
                                     }
                                 }
                             });
@@ -236,6 +237,7 @@ public class captchafragment extends Fragment {
                             Bundle args = new Bundle();
                             args.putString("_txn", txnid);                          // adding data to pass in next activity.
                             args.putString("aadhar", aadharString);                 // adding data to pass in next activity.
+                            args.putString("uuidStr", uuidString);                  // adding data to pass in next activity.
 
                             Fragment ekycfragment = new ekycGeneratorFragment();
                             ekycfragment.setArguments(args);

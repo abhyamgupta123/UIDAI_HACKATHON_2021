@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
@@ -19,7 +18,10 @@ import org.json.JSONObject
 import util.StateReq
 import util.StateResp
 import java.io.File
+import java.security.MessageDigest
 import java.util.*
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
 
 class ResultActivity : AppCompatActivity() {
 
@@ -84,10 +86,19 @@ class ResultActivity : AppCompatActivity() {
                     val responseObj = JSONObject(response)
                     val status = responseObj.getString("status")
                     if (status=="OK"){
-                        val data = responseObj.getJSONObject ("file").getString("data")
-                        generator(data)
-                        val filepath  = getExternalFilesDir(null)
-                        val fullPath = filepath.toString() + "/KYC/offlineaadhaar20211028024757269.xml"
+                        val encodedData = responseObj.getJSONObject ("file").getString("data")
+                        val data = decryptString(encodedData, qrDataArray[4])
+                        if (data != null) {
+                            generator(data)
+                        }else{
+                            Toast.makeText(this, "Qr Code is Corrupted...", Toast.LENGTH_SHORT).show()
+                        }
+                        val filepath = getExternalFilesDir(null)
+                        val filename = qrDataArray[5]
+                        val lengthFileName = filename.length - 4
+                        val fileNameOnly = filename.substring(0, lengthFileName)
+                        val fullPath = filepath.toString() + "/KYC/" + fileNameOnly + ".xml"
+                        Log.e(TAG, "********************************** ++++++" + fullPath + " --- " + fileNameOnly)
                         Log.e(TAG, "full path is "+ fullPath)
                         val xmlString = readFileDirectlyAsText(fullPath)
                         Log.e(TAG, "=====>>>>> XML DATA IS "+ xmlString + " |=============================================|")
@@ -142,6 +153,32 @@ class ResultActivity : AppCompatActivity() {
             Toast.makeText(this, resp.errInfo, Toast.LENGTH_LONG).show()
         }
     }
+
+
+
+    @Throws(java.lang.Exception::class)
+    fun decryptString(
+        outputString: String,
+        password: String
+    ): String? {
+        val key: SecretKeySpec = generateKey(password)
+        val c = Cipher.getInstance("AES")
+        c.init(Cipher.DECRYPT_MODE, key)
+        val decodeedValue =
+            android.util.Base64.decode(outputString, android.util.Base64.DEFAULT)
+        val decValue = c.doFinal(decodeedValue)
+        return String(decValue)
+    }
+
+    @Throws(java.lang.Exception::class)
+    fun generateKey(secretPassword: String): SecretKeySpec {
+        val digest = MessageDigest.getInstance("SHA-256")
+        val bytes = secretPassword.toByteArray(charset("UTF-8"))
+        digest.update(bytes, 0, bytes.size)
+        val key = digest.digest()
+        return SecretKeySpec(key, "AES")
+    }
+
 
 
 

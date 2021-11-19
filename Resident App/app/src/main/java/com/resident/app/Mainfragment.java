@@ -89,6 +89,22 @@ public class Mainfragment extends Fragment {
         String link = sharedPreferences.getString("fileLink", "");
         String userName = sharedPreferences.getString("Username", "");
         String eventUID = sharedPreferences.getString("eventUID", "");
+        String filename = sharedPreferences.getString("fileName", "NIL");
+        if (filename.contains("NIL")){
+            Toast.makeText(thiscontext, "EKYC is not Generated Correctly, Please Re-generate EKYC to continue...", Toast.LENGTH_LONG)
+                    .show();
+
+            editor.remove("encodedKyc");
+            editor.remove("ekycFlag");
+            editor.remove("requestedDate");
+            editor.remove("fileLink");
+            editor.remove("fileName");
+
+            // Going to captcha fragment because the ekyc is not registered.
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.fraagment_view, new captchafragment());
+            fragmentTransaction.commit();
+        }
 
         if (!encryptedEkycString.isEmpty()){
             generateQrButton.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +135,7 @@ public class Mainfragment extends Fragment {
                                 myIntent.putExtra("url", link);
                                 myIntent.putExtra("userName", userName);
                                 myIntent.putExtra("eventUID", eventUID);
+                                myIntent.putExtra("fileName", filename);
 
                                 thiscontext.startActivity(myIntent);
                                                                                                                                                                                                     
@@ -248,6 +265,4 @@ public class Mainfragment extends Fragment {
         SecretKeySpec secretKeySpec = new SecretKeySpec(key, "AES");
         return secretKeySpec;
     }
-
-
 }

@@ -45,6 +45,7 @@ public class QRGneratorActivity extends AppCompatActivity {
         String link = intent.getStringExtra("url");
         String usernName = intent.getStringExtra("userName");
         String eventId = intent.getStringExtra("eventUID");
+        String fileName = intent.getStringExtra("fileName");
 
         WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
@@ -59,7 +60,7 @@ public class QRGneratorActivity extends AppCompatActivity {
         int dimen = width < height ? width : height;
         dimen = dimen * 3 / 4;
 
-        String qrStringToSend = "UIDAI://," + usernName + "," + eventId + "," + link + "," + pass;
+        String qrStringToSend = "UIDAI://," + usernName + "," + eventId + "," + link + "," + pass + "," + fileName;
         qrgEncoder = new QRGEncoder(qrStringToSend, null, QRGContents.Type.TEXT, dimen);
         try {
             bitmap = qrgEncoder.encodeAsBitmap();

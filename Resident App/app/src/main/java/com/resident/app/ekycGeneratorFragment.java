@@ -2,6 +2,7 @@ package com.resident.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,7 @@ public class ekycGeneratorFragment extends Fragment {
 
     // For Logging Purpose and traceback
     private static final String TAG = ekycGeneratorFragment.class.getName();
+    private static final String sharedPreferenceString = "UIDAI.GOV.INDIA";
 
     // FOR APIs Work
     private IResult mResultCallback = null;
@@ -39,6 +41,10 @@ public class ekycGeneratorFragment extends Fragment {
     // to be used in api requesting.
     private String _txnid;
     private String aadharNumber;
+    private String uuidString;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     // URLs for calling APIs.
     private String ekyc_generate_url = "https://stage1.uidai.gov.in/eAadhaarService/api/downloadOfflineEkyc";
@@ -66,10 +72,14 @@ public class ekycGeneratorFragment extends Fragment {
         // Getting data from previoud fragment:-
         _txnid = getArguments().getString("_txn");
         aadharNumber = getArguments().getString("aadhar");
+        uuidString = getArguments().getString("uuidStr");
 
         // Assigning and finding views from activity:-
         otpField = (TextInputLayout) view.findViewById(R.id.otpfield);
         generateEkycButton = (Button) view.findViewById(R.id.generateEkyc);
+
+        sharedPreferences = thiscontext.getApplicationContext().getSharedPreferences(sharedPreferenceString, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         // Initialising API methods class before.
         method = callingApiFunction();
@@ -79,7 +89,8 @@ public class ekycGeneratorFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String otpString = otpField.getEditText().getText().toString().trim();
-                method.generate_ekyc("EKYC", TAG, ekyc_generate_url, aadharNumber, _txnid, otpString, "3112");
+                method.generate_ekyc("EKYC", TAG, ekyc_generate_url, aadharNumber, _txnid, otpString, "3112", uuidString);
+                Log.e(TAG, "====> " + uuidString + " " + _txnid);
 //                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                fragmentTransaction.add(R.id.fraagment_view, new ekycEncryptorFragment());
 //                fragmentTransaction.commit();
@@ -116,6 +127,11 @@ public class ekycGeneratorFragment extends Fragment {
                         if (status.contains("Success")){
                             String _kycstr = response.getString("eKycXML");
                             String _requestDate = response.getString("requestDate");
+                            String filename = response.getString("fileName");
+
+                            editor.putString("fileName", filename);
+                            Log.e(TAG, "something--->>> " + filename);
+                            editor.commit();
 
                             // adding values to pass to ther activity:-
                             Bundle args = new Bundle();
